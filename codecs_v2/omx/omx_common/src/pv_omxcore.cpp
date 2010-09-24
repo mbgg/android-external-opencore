@@ -72,6 +72,7 @@ OMX_ERRORTYPE H263Register();
 OMX_ERRORTYPE AvcRegister();
 OMX_ERRORTYPE WmvRegister();
 OMX_ERRORTYPE AacRegister();
+OMX_ERRORTYPE AacDspRegister();
 OMX_ERRORTYPE AmrRegister();
 OMX_ERRORTYPE Mp3Register();
 OMX_ERRORTYPE WmaRegister();
@@ -103,6 +104,11 @@ OMX_ERRORTYPE WmvRegister();
 
 #if REGISTER_OMX_AAC_COMPONENT
 OMX_ERRORTYPE AacRegister();
+#endif
+#endif
+
+#if REGISTER_OMX_DSP_AAC_COMPONENT
+OMX_ERRORTYPE AacDspRegister();
 #endif
 
 #if REGISTER_OMX_AMR_COMPONENT
@@ -208,6 +214,11 @@ static OMX_ERRORTYPE _OMX_Init()
     if (Status != OMX_ErrorNone)
         return Status;
 
+    // AAC DSP
+    Status = AacDspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+
     // AAC
     Status = AacRegister();
     if (Status != OMX_ErrorNone)
@@ -280,6 +291,13 @@ static OMX_ERRORTYPE _OMX_Init()
 #if REGISTER_OMX_WMV_COMPONENT
     // WMV
     Status = WmvRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+#endif
+
+#if REGISTER_OMX_DSP_AAC_COMPONENT
+    // AAC DSP
+    Status = AacDspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 #endif
