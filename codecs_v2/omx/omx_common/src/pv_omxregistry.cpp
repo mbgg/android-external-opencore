@@ -585,6 +585,68 @@ OMX_ERRORTYPE Mp3Register()
 #endif
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
+#if REGISTER_OMX_DSP_MP3_COMPONENT
+// external factory functions needed for creation of each component (or stubs for testing)
+#if (DYNAMIC_LOAD_OMX_DSP_MP3_COMPONENT == 0)
+extern OMX_ERRORTYPE Mp3DspOmxComponentFactory(OMX_OUT OMX_HANDLETYPE* pHandle, OMX_IN  OMX_PTR pAppData, OMX_PTR pProxy, OMX_STRING aOmxLibName, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+extern OMX_ERRORTYPE Mp3DspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+#endif
+#endif
+#if (REGISTER_OMX_DSP_MP3_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
+/////////////////////////////////////////////////////////////////////////////
+OMX_ERRORTYPE Mp3Register()
+{
+    ComponentRegistrationType *pCRT = (ComponentRegistrationType *) oscl_malloc(sizeof(ComponentRegistrationType));
+
+    if (pCRT)
+    {
+        pCRT->ComponentName = (OMX_STRING)"OMX.PV.mp3dspdec";
+        pCRT->RoleString[0] = (OMX_STRING)"audio_decoder.mp3";
+        pCRT->NumberOfRolesSupported = 1;
+        pCRT->SharedLibraryOsclUuid = NULL;
+#if USE_DYNAMIC_LOAD_OMX_COMPONENTS
+        pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
+        pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_mp3dec_sharedlibrary.so";
+        pCRT->SharedLibraryPtr = NULL;
+
+        OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
+        if (temp == NULL)
+        {
+            oscl_free(pCRT); // free allocated memory
+            return OMX_ErrorInsufficientResources;
+        }
+        OSCL_PLACEMENT_NEW(temp, PV_OMX_MP3DEC_UUID);
+
+        pCRT->SharedLibraryOsclUuid = (OMX_PTR) temp;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#if REGISTER_OMX_DSP_MP3_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_MP3_COMPONENT == 0)
+
+        pCRT->FunctionPtrCreateComponent = &Mp3OmxDspComponentFactory;
+        pCRT->FunctionPtrDestroyComponent = &Mp3OmxDspComponentDestructor;
+        pCRT->SharedLibraryName = NULL;
+        pCRT->SharedLibraryPtr = NULL;
+
+        if (pCRT->SharedLibraryOsclUuid)
+            oscl_free(pCRT->SharedLibraryOsclUuid);
+
+        pCRT->SharedLibraryOsclUuid = NULL;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#endif
+    }
+    else
+    {
+        return OMX_ErrorInsufficientResources;
+    }
+
+    return  ComponentRegister(pCRT);
+}
+#endif
+
+///////////////////////////////////////////////////////////////////////////////////////////////
 #if REGISTER_OMX_WMA_COMPONENT
 // external factory functions needed for creation of each component (or stubs for testing)
 #if (DYNAMIC_LOAD_OMX_WMA_COMPONENT == 0)

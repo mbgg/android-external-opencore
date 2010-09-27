@@ -118,6 +118,10 @@ OMX_ERRORTYPE AmrRegister();
 OMX_ERRORTYPE Mp3Register();
 #endif
 
+#if REGISTER_OMX_DSP_MP3_COMPONENT
+OMX_ERRORTYPE Mp3DspRegister();
+#endif
+
 #if REGISTER_OMX_WMA_COMPONENT
 OMX_ERRORTYPE WmaRegister();
 #endif
@@ -228,6 +232,11 @@ static OMX_ERRORTYPE _OMX_Init()
     if (Status != OMX_ErrorNone)
         return Status;
 
+    // MP3 DSP
+    Status = Mp3DspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+
     // MP3
     Status = Mp3Register();
     if (Status != OMX_ErrorNone)
@@ -318,6 +327,13 @@ static OMX_ERRORTYPE _OMX_Init()
 #if REGISTER_OMX_MP3_COMPONENT
     // MP3
     Status = Mp3Register();
+    if (Status != OMX_ErrorNone)
+        return Status;
+#endif
+
+#if REGISTER_OMX_DSP_MP3_COMPONENT
+    // MP3 DSP
+    Status = Mp3DspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 #endif

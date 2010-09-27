@@ -903,7 +903,8 @@
 #define pvgsmamrparser_m_mk "/fileformats/rawgsmamr/parser/build/make"
 #define rvdecoder_m_mk ""
 #define pvmp4ffparsernodeopencore_m_mk "/nodes/pvmp4ffparsernode/build_opencore/make"
-#define REGISTER_OMX_MP3_COMPONENT 1
+#define REGISTER_OMX_MP3_COMPONENT 0
+#define REGISTER_OMX_DSP_MP3_COMPONENT 1
 #define scsp_y_lib ""
 #define pvstreamingmanagernode_segments_m_lib "-lpvstreamingmanagernode"
 #define LIBS_omxdec_shared "-lomx_avc_component_lib -lomx_m4v_component_lib  -lomx_aac_component_lib -lomx_amr_component_lib -lomx_mp3_component_lib "
@@ -1371,7 +1372,8 @@
 #define pvprotocolenginewmhttpstreamingpluginreginterface_m_mk ""
 #define pvclientserversocketnode_m_lib "-lpvclientserversocketnode"
 #define pvsqlite_m_mk ""
-#define DYNAMIC_LOAD_OMX_MP3_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_MP3_COMPONENT 0
+#define DYNAMIC_LOAD_OMX_DSP_MP3_COMPONENT 1
 #define pvavcdecoder_y_mk ""
 #define getactualaacconfig_y_lib ""
 #define pvasf_streamingreg_so_name ""
