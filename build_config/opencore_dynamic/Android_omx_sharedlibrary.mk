@@ -16,6 +16,10 @@ LOCAL_MODULE := libomx_sharedlibrary
 
 LOCAL_SHARED_LIBRARIES +=   libopencore_common
 
+ifneq ($(strip $(libdspengineiface_already_built)),)
+LOCAL_LDFLAGS += -ldspengineiface
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 include   $(PV_TOP)/codecs_v2/omx/omx_common/Android.mk
 include   $(PV_TOP)/codecs_v2/omx/omx_queue/Android.mk
