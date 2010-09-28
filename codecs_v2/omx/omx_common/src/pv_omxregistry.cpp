@@ -594,7 +594,7 @@ extern OMX_ERRORTYPE Mp3DspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle,
 #endif
 #if (REGISTER_OMX_DSP_MP3_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
 /////////////////////////////////////////////////////////////////////////////
-OMX_ERRORTYPE Mp3Register()
+OMX_ERRORTYPE Mp3DspRegister()
 {
     ComponentRegistrationType *pCRT = (ComponentRegistrationType *) oscl_malloc(sizeof(ComponentRegistrationType));
 
@@ -607,7 +607,7 @@ OMX_ERRORTYPE Mp3Register()
 #if USE_DYNAMIC_LOAD_OMX_COMPONENTS
         pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
         pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
-        pCRT->SharedLibraryName = (OMX_STRING)"libomx_mp3dec_sharedlibrary.so";
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_audio_sharedlibrary";
         pCRT->SharedLibraryPtr = NULL;
 
         OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
