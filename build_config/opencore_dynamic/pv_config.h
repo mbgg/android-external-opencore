@@ -698,7 +698,8 @@
 #define REGISTER_OMX_DSP_AAC_COMPONENT 1
 #define pvwavffparsernode_m_lib "-lpvwavffparsernode"
 #define rtppayloadparser_m_lib "-lrtppayloadparser"
-#define DYNAMIC_LOAD_OMX_M4V_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_M4V_COMPONENT 0
+#define DYNAMIC_LOAD_OMX_DSP_M4V_COMPONENT 1
 #define MODS_omx_avcenc_sharedlibrary "-lomx_sharedlibrary -lopencore_common "
 #define pvaacparser_m_mk "/fileformats/rawaac/parser/build/make"
 #define pvgsmamrparser_y_mk ""
@@ -725,7 +726,8 @@
 #define pvprotocolenginenode_pdl_plugin_in_registry_y_lib ""
 #define CONFIG_FLAGS "USE_CML2_CONFIG "
 #define mp4recognizer_utility_y_mk ""
-#define REGISTER_OMX_H263_COMPONENT 1
+#define REGISTER_OMX_H263_COMPONENT 0
+#define REGISTER_OMX_DSP_H263_COMPONENT 1
 #define pvmp4reginterface_m_lib "-lpvmp4reginterface"
 #define pv324m_m_lib "-lpv324m"
 #define pvpvrnode_y_lib ""
@@ -910,7 +912,8 @@
 #define LIBS_omxdec_shared "-lomx_avc_component_lib -lomx_m4v_component_lib  -lomx_aac_component_lib -lomx_amr_component_lib -lomx_mp3_component_lib "
 #define pvmp4decoder_y_mk ""
 #define pvmp4interface_m_mk "/modules/linux_mp4/core/build/make"
-#define REGISTER_OMX_AVC_COMPONENT 1
+#define REGISTER_OMX_AVC_COMPONENT 0
+#define REGISTER_OMX_DSP_AVC_COMPONENT 1
 #define pvaacffparsernode_y_lib ""
 #define omx_mp3_component_imp_m_mk ""
 #define pvasfffparsernode_m_mk ""
@@ -1148,7 +1151,8 @@
 #define omx_queue_m_mk "/codecs_v2/omx/omx_queue/build/make"
 #define DYNAMIC_LOAD_OMX_AAC_COMPONENT 0
 #define DYNAMIC_LOAD_OMX_DSP_AAC_COMPONENT 1
-#define DYNAMIC_LOAD_OMX_AVC_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_AVC_COMPONENT 0
+#define DYNAMIC_LOAD_OMX_DSP_AVC_COMPONENT 1
 #define pvgendatastruct_y_mk ""
 #define pvmiofileoutput_y_lib ""
 #define pvdownloadreginterface_m_lib "-lpvdownloadreginterface"
@@ -1156,7 +1160,8 @@
 #define pvjanusplugin_m_mk ""
 #define LIBS_static " -lunit_test                                                                                                                                                                       "
 #define pvmedialayernode_plugins_opencore_rtsp "ml_rtsp.mk"
-#define REGISTER_OMX_M4V_COMPONENT 1
+#define REGISTER_OMX_M4V_COMPONENT 0
+#define REGISTER_OMX_DSP_M4V_COMPONENT 1
 #define MODS_opencore_net_support "-lopencore_common"
 #define pvcrypto_y_mk ""
 #define pvdummyoutputnode_y_lib ""
@@ -1206,7 +1211,8 @@
 #define pvm4vencoder_imp_m_mk ""
 #define omx_mp3_component_imp_m_lib ""
 #define pvstreamingmanagernode_m_mk ""
-#define DYNAMIC_LOAD_OMX_H263_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_H263_COMPONENT 0
+#define DYNAMIC_LOAD_OMX_DSP_H263_COMPONENT 1
 #define pvomxencnode_y_lib ""
 #define omx_wma_component_imp_m_lib "n"
 #define pvvideoencnode_y_lib ""

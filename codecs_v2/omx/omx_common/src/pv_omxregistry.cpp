@@ -151,6 +151,71 @@ OMX_ERRORTYPE Mpeg4Register()
 
 
 #endif
+/////////////////////////////////////////////////////////////////////////////
+
+#if REGISTER_OMX_DSP_M4V_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_M4V_COMPONENT == 0)
+// external factory functions needed for creation of each component (or stubs for testing)
+extern OMX_ERRORTYPE Mpeg4DspOmxComponentFactory(OMX_OUT OMX_HANDLETYPE* pHandle, OMX_IN  OMX_PTR pAppData, OMX_IN OMX_PTR pProxy, OMX_STRING aOmxLibName, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+extern OMX_ERRORTYPE Mpeg4DspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+#endif
+#endif
+
+#if (REGISTER_OMX_DSP_M4V_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
+/////////////////////////////////////////////////////////////////////////////
+OMX_ERRORTYPE Mpeg4DspRegister()
+{
+    ComponentRegistrationType *pCRT = (ComponentRegistrationType *) oscl_malloc(sizeof(ComponentRegistrationType));
+
+    if (pCRT)
+    {
+        pCRT->ComponentName = (OMX_STRING)"OMX.PV.mpeg4dspdec";
+        pCRT->RoleString[0] = (OMX_STRING)"video_decoder.mpeg4";
+        pCRT->NumberOfRolesSupported = 1;
+        pCRT->SharedLibraryOsclUuid = NULL;
+#if USE_DYNAMIC_LOAD_OMX_COMPONENTS
+        pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
+        pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_video_sharedlibrary.so";
+        pCRT->SharedLibraryPtr = NULL;
+
+        OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
+        if (temp == NULL)
+        {
+            oscl_free(pCRT); // free allocated memory
+            return OMX_ErrorInsufficientResources;
+        }
+        OSCL_PLACEMENT_NEW(temp, PV_OMX_M4VDEC_UUID);
+
+        pCRT->SharedLibraryOsclUuid = (OMX_PTR) temp;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#if REGISTER_OMX_DSP_M4V_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_M4V_COMPONENT == 0)
+        pCRT->FunctionPtrCreateComponent = &Mpeg4OmxDspComponentFactory;
+        pCRT->FunctionPtrDestroyComponent = &Mpeg4OmxDspComponentDestructor;
+        pCRT->SharedLibraryName = NULL;
+        pCRT->SharedLibraryPtr = NULL;
+
+        if (pCRT->SharedLibraryOsclUuid)
+            oscl_free(pCRT->SharedLibraryOsclUuid);
+
+        pCRT->SharedLibraryOsclUuid = NULL;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#endif
+
+    }
+    else
+    {
+        return OMX_ErrorInsufficientResources;
+    }
+
+    return  ComponentRegister(pCRT);
+}
+
+
+#endif
 //////////////////////////////////////////////////////////////////////////////
 
 #if REGISTER_OMX_H263_COMPONENT
@@ -213,6 +278,68 @@ OMX_ERRORTYPE H263Register()
     return  ComponentRegister(pCRT);
 }
 #endif
+//////////////////////////////////////////////////////////////////////////////
+
+#if REGISTER_OMX_DSP_H263_COMPONENT
+// external factory functions needed for creation of each component (or stubs for testing)
+#if (DYNAMIC_LOAD_OMX_DSP_H263_COMPONENT == 0)
+extern OMX_ERRORTYPE H263DspOmxComponentFactory(OMX_OUT OMX_HANDLETYPE* pHandle, OMX_IN  OMX_PTR pAppData, OMX_IN OMX_PTR pProxy, OMX_STRING aOmxLibName, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+extern OMX_ERRORTYPE H263DspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+#endif
+#endif
+#if (REGISTER_OMX_DSP_H263_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
+/////////////////////////////////////////////////////////////////////////////
+OMX_ERRORTYPE H263DspRegister()
+{
+    ComponentRegistrationType *pCRT = (ComponentRegistrationType *) oscl_malloc(sizeof(ComponentRegistrationType));
+
+    if (pCRT)
+    {
+        pCRT->ComponentName = (OMX_STRING)"OMX.PV.h263dspdec";
+        pCRT->RoleString[0] = (OMX_STRING)"video_decoder.h263";
+        pCRT->NumberOfRolesSupported = 1;
+        pCRT->SharedLibraryOsclUuid = NULL;
+#if USE_DYNAMIC_LOAD_OMX_COMPONENTS
+        pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
+        pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_video_sharedlibrary.so";
+        pCRT->SharedLibraryPtr = NULL;
+
+        OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
+        if (temp == NULL)
+        {
+            oscl_free(pCRT); // free allocated memory
+            return OMX_ErrorInsufficientResources;
+        }
+        OSCL_PLACEMENT_NEW(temp, PV_OMX_H263DEC_UUID);
+
+        pCRT->SharedLibraryOsclUuid = (OMX_PTR) temp;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#if REGISTER_OMX_DSP_H263_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_H263_COMPONENT == 0)
+
+        pCRT->FunctionPtrCreateComponent = &H263OmxDspComponentFactory;
+        pCRT->FunctionPtrDestroyComponent = &H263OmxDspComponentDestructor;
+        pCRT->SharedLibraryName = NULL;
+        pCRT->SharedLibraryPtr = NULL;
+
+        if (pCRT->SharedLibraryOsclUuid)
+            oscl_free(pCRT->SharedLibraryOsclUuid);
+
+        pCRT->SharedLibraryOsclUuid = NULL;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#endif
+    }
+    else
+    {
+        return OMX_ErrorInsufficientResources;
+    }
+
+    return  ComponentRegister(pCRT);
+}
+#endif
 ////////////////////////////////////////////////////////////////////////////////////
 
 #if REGISTER_OMX_AVC_COMPONENT
@@ -254,6 +381,66 @@ OMX_ERRORTYPE AvcRegister()
 #if (DYNAMIC_LOAD_OMX_AVC_COMPONENT == 0)
         pCRT->FunctionPtrCreateComponent = &AvcOmxComponentFactory;
         pCRT->FunctionPtrDestroyComponent = &AvcOmxComponentDestructor;
+        pCRT->SharedLibraryName = NULL;
+        pCRT->SharedLibraryPtr = NULL;
+
+        if (pCRT->SharedLibraryOsclUuid)
+            oscl_free(pCRT->SharedLibraryOsclUuid);
+
+        pCRT->SharedLibraryOsclUuid = NULL;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#endif
+    }
+    else
+    {
+        return OMX_ErrorInsufficientResources;
+    }
+
+    return  ComponentRegister(pCRT);
+}
+#endif
+////////////////////////////////////////////////////////////////////////////////////
+
+#if REGISTER_OMX_DSP_AVC_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_AVC_COMPONENT == 0)
+extern OMX_ERRORTYPE AvcDspOmxComponentFactory(OMX_OUT OMX_HANDLETYPE* pHandle, OMX_IN  OMX_PTR pAppData, OMX_IN OMX_PTR pProxy, OMX_STRING aOmxLibName, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+extern OMX_ERRORTYPE AvcDspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
+#endif
+#endif
+#if (REGISTER_OMX_AVC_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
+/////////////////////////////////////////////////////////////////////
+OMX_ERRORTYPE AvcDspRegister()
+{
+    ComponentRegistrationType *pCRT = (ComponentRegistrationType *) oscl_malloc(sizeof(ComponentRegistrationType));
+
+    if (pCRT)
+    {
+        pCRT->ComponentName = (OMX_STRING)"OMX.PV.avcdspdec";
+        pCRT->RoleString[0] = (OMX_STRING)"video_decoder.avc";
+        pCRT->NumberOfRolesSupported = 1;
+        pCRT->SharedLibraryOsclUuid = NULL;
+#if USE_DYNAMIC_LOAD_OMX_COMPONENTS
+        pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
+        pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_video_sharedlibrary.so";
+        pCRT->SharedLibraryPtr = NULL;
+
+        OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
+        if (temp == NULL)
+        {
+            oscl_free(pCRT); // free allocated memory
+            return OMX_ErrorInsufficientResources;
+        }
+        OSCL_PLACEMENT_NEW(temp, PV_OMX_AVCDEC_UUID);
+
+        pCRT->SharedLibraryOsclUuid = (OMX_PTR) temp;
+        pCRT->SharedLibraryRefCounter = 0;
+#endif
+#if REGISTER_OMX_DSP_AVC_COMPONENT
+#if (DYNAMIC_LOAD_OMX_DSP_AVC_COMPONENT == 0)
+        pCRT->FunctionPtrCreateComponent = &AvcOmxDspComponentFactory;
+        pCRT->FunctionPtrDestroyComponent = &AvcOmxDspComponentDestructor;
         pCRT->SharedLibraryName = NULL;
         pCRT->SharedLibraryPtr = NULL;
 

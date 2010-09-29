@@ -68,13 +68,17 @@
 // unconditionally - may error out at load time
 
 OMX_ERRORTYPE Mpeg4Register();
+OMX_ERRORTYPE Mpeg4DspRegister();
 OMX_ERRORTYPE H263Register();
+OMX_ERRORTYPE H263DspRegister();
 OMX_ERRORTYPE AvcRegister();
+OMX_ERRORTYPE AvcDspRegister();
 OMX_ERRORTYPE WmvRegister();
 OMX_ERRORTYPE AacRegister();
 OMX_ERRORTYPE AacDspRegister();
 OMX_ERRORTYPE AmrRegister();
 OMX_ERRORTYPE Mp3Register();
+OMX_ERRORTYPE Mp3DspRegister();
 OMX_ERRORTYPE WmaRegister();
 
 OMX_ERRORTYPE AmrEncRegister();
@@ -90,12 +94,24 @@ OMX_ERRORTYPE AacEncRegister();
 OMX_ERRORTYPE Mpeg4Register();
 #endif
 
+#if REGISTER_OMX_DSP_M4V_COMPONENT
+OMX_ERRORTYPE Mpeg4DspRegister();
+#endif
+
 #if REGISTER_OMX_H263_COMPONENT
 OMX_ERRORTYPE H263Register();
 #endif
 
+#if REGISTER_OMX_DSP_H263_COMPONENT
+OMX_ERRORTYPE H263DspRegister();
+#endif
+
 #if REGISTER_OMX_AVC_COMPONENT
 OMX_ERRORTYPE AvcRegister();
+#endif
+
+#if REGISTER_OMX_DSP_AVC_COMPONENT
+OMX_ERRORTYPE AvcDspRegister();
 #endif
 
 #if REGISTER_OMX_WMV_COMPONENT
@@ -196,14 +212,28 @@ static OMX_ERRORTYPE _OMX_Init()
 
 #if USE_DYNAMIC_LOAD_OMX_COMPONENTS
 //unconditional registration
+    // MPEG4 DSP
+    Status = Mpeg4DspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+
     // MPEG4
     Status = Mpeg4Register();
     if (Status != OMX_ErrorNone)
         return Status;
 
+    //H263 DSP
+    Status = H263DspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
 
     //H263
     Status = H263Register();
+    if (Status != OMX_ErrorNone)
+        return Status;
+
+    // AVC DSP
+    Status = AvcDspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 
@@ -275,6 +305,13 @@ static OMX_ERRORTYPE _OMX_Init()
 
 #else
     // REGISTER COMPONENT TYPES (ONE BY ONE)
+#if REGISTER_OMX_DSP_M4V_COMPONENT
+    // MPEG4 DSP
+    Status = Mpeg4DspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+#endif
+
 #if REGISTER_OMX_M4V_COMPONENT
     // MPEG4
     Status = Mpeg4Register();
@@ -282,9 +319,23 @@ static OMX_ERRORTYPE _OMX_Init()
         return Status;
 #endif
 
+#if REGISTER_OMX_DSP_H263_COMPONENT
+    //H263 DSP
+    Status = H263DspRegister();
+    if (Status != OMX_ErrorNone)
+        return Status;
+#endif
+
 #if REGISTER_OMX_H263_COMPONENT
     //H263
     Status = H263Register();
+    if (Status != OMX_ErrorNone)
+        return Status;
+#endif
+
+#if REGISTER_OMX_DSP_AVC_COMPONENT
+    // AVC DSP
+    Status = AvcRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 #endif
