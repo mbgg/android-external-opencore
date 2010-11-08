@@ -218,19 +218,23 @@ static OMX_ERRORTYPE _OMX_Init()
         return Status;
 
     // MPEG4
+#if 0
     Status = Mpeg4Register();
     if (Status != OMX_ErrorNone)
         return Status;
+#endif
 
     //H263 DSP
     Status = H263DspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 
+#if 0
     //H263
     Status = H263Register();
     if (Status != OMX_ErrorNone)
         return Status;
+#endif
 
     // AVC DSP
     Status = AvcDspRegister();
@@ -238,9 +242,11 @@ static OMX_ERRORTYPE _OMX_Init()
         return Status;
 
     // AVC
+#if 0
     Status = AvcRegister();
     if (Status != OMX_ErrorNone)
         return Status;
+#endif
 
     // WMV
     Status = WmvRegister();
@@ -335,7 +341,7 @@ static OMX_ERRORTYPE _OMX_Init()
 
 #if REGISTER_OMX_DSP_AVC_COMPONENT
     // AVC DSP
-    Status = AvcRegister();
+    Status = AvcDspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
 #endif

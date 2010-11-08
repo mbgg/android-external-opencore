@@ -408,7 +408,7 @@ extern OMX_ERRORTYPE AvcDspOmxComponentFactory(OMX_OUT OMX_HANDLETYPE* pHandle, 
 extern OMX_ERRORTYPE AvcDspOmxComponentDestructor(OMX_IN OMX_HANDLETYPE pHandle, OMX_PTR &aOmxLib, OMX_PTR aOsclUuid, OMX_U32 &aRefCount);
 #endif
 #endif
-#if (REGISTER_OMX_AVC_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
+#if (REGISTER_OMX_DSP_AVC_COMPONENT) || (USE_DYNAMIC_LOAD_OMX_COMPONENTS)
 /////////////////////////////////////////////////////////////////////
 OMX_ERRORTYPE AvcDspRegister()
 {
@@ -559,7 +559,6 @@ OMX_ERRORTYPE AacRegister()
 #endif
 #if REGISTER_OMX_AAC_COMPONENT
 #if (DYNAMIC_LOAD_OMX_AAC_COMPONENT == 0)
-
         pCRT->FunctionPtrCreateComponent = &AacOmxComponentFactory;
         pCRT->FunctionPtrDestroyComponent = &AacOmxComponentDestructor;
         pCRT->SharedLibraryName = NULL;
@@ -605,7 +604,7 @@ OMX_ERRORTYPE AacDspRegister()
 #if USE_DYNAMIC_LOAD_OMX_COMPONENTS
         pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
         pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
-        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_audio_sharedlibrary";
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_audio_sharedlibrary.so";
         pCRT->SharedLibraryPtr = NULL;
 
         OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
@@ -794,7 +793,7 @@ OMX_ERRORTYPE Mp3DspRegister()
 #if USE_DYNAMIC_LOAD_OMX_COMPONENTS
         pCRT->FunctionPtrCreateComponent = &OmxComponentFactoryDynamicCreate;
         pCRT->FunctionPtrDestroyComponent = &OmxComponentFactoryDynamicDestructor;
-        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_audio_sharedlibrary";
+        pCRT->SharedLibraryName = (OMX_STRING)"libomx_dsp_audio_sharedlibrary.so";
         pCRT->SharedLibraryPtr = NULL;
 
         OsclUuid *temp = (OsclUuid *) oscl_malloc(sizeof(OsclUuid));
