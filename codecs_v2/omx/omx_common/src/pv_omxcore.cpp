@@ -253,10 +253,12 @@ static OMX_ERRORTYPE _OMX_Init()
     if (Status != OMX_ErrorNone)
         return Status;
 
+#if 0
     // AAC DSP
     Status = AacDspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
+#endif
 
     // AAC
     Status = AacRegister();
@@ -268,10 +270,12 @@ static OMX_ERRORTYPE _OMX_Init()
     if (Status != OMX_ErrorNone)
         return Status;
 
+#if 0
     // MP3 DSP
     Status = Mp3DspRegister();
     if (Status != OMX_ErrorNone)
         return Status;
+#endif
 
     // MP3
     Status = Mp3Register();

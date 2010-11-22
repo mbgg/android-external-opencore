@@ -694,8 +694,8 @@
 #define pv2wayengine_y_lib ""
 #define LIBDIR_omxjoint_shared "/codecs_v2/omx/omx_common/build/make_multithreaded /codecs_v2/omx/omx_queue/build/make /codecs_v2/omx/omx_proxy/build/make /codecs_v2/omx/omx_baseclass/build/make /codecs_v2/omx/omx_mastercore/build/make_multithreaded /codecs_v2/omx/omx_sharedlibrary/interface/build/make"
 #define LIBS_shared "-losclbase -losclerror -losclmemory -losclproc -losclregcli -losclregserv -losclutil -losclio -lunit_test  -loscllib    -lpvgendatastruct -lpvmediadatastruct -lpvmimeutils -lthreadsafe_callback_ao -lpvthreadmessaging -lomx_avc_component_lib -lomx_m4v_component_lib  -lomx_aac_component_lib -lomx_amr_component_lib -lomx_mp3_component_lib  -lomx_amrenc_component_lib -lomx_m4venc_component_lib -lomx_avcenc_component_lib -lomx_common_lib -lomx_queue_lib -lpvomx_proxy_lib -lomx_baseclass_lib -lomx_mastercore_lib -lpv_omx_interface   -lpv_aac_dec -lpv_amr_nb_common_lib -lpvamrwbdecoder -lpvdecoder_gsmamr -lpvmp3  -lpvencoder_gsmamr -lpv_avc_common_lib -lpvavcdecoder  -lpvmp4decoder  -lpvm4vencoder -lpvavch264enc -lm4v_config -lpv_config_parser -lcolorconvert -lpvfileparserutils -lpvid3parcom -lpvpvxparser -lpvwav  -lpvavifileparser  -lpvmp3ff -lpvaacparser -lpvgsmamrparser   -lmp4recognizer_utility -lpvmp4ff  -lpvmp4ffcomposer     -lpv_http_parcom -lpvlatmpayloadparser  -lpvsdpparser  -lpv_rtsp_parcom   -lpvrtsp_cli_eng_node -lrtppayloadparser -lrtprtcp -lpv324m -lpvgeneraltools -lcpm -lpassthru_oma1   -lpvmiofileoutput -lpvmiofileinput -lpvmioaviwavfileinput -lpvmio_comm_loopback -lpvmfrecognizer -lpvaacffrecognizer -lpvamrffrecognizer   -lpvmp3ffrecognizer -lpvmp4ffrecognizer -lpvwavffrecognizer    -lpvmf        -lpvfileoutputnode -lpvmediaoutputnode -lpvsocketnode  -lprotocolenginenode_base -lprotocolenginenode_common -lprotocolenginenode_download_common -lprotocolenginenode_pdl -lprotocolenginenode_ps      -lpvwavffparsernode   -lpvomxencnode -lpvomxbasedecnode -lpvomxaudiodecnode -lpvomxvideodecnode  -lpvaacffparsernode  -lpvamrffparsernode   -lpvmp3ffparsernode  -lpvmp4ffparsernode      -lpvmediainputnode  -lpvmp4ffcomposernode     -lpvdownloadmanagernode   -lpvstreamingmanagernode   -lpvrtspinterface -lpvrtspreginterface -lpvmedialayernode  -lpvjitterbuffer -lpvjitterbufferrtp  -lpvjitterbuffernode -lpvcommsionode -lpvclientserversocketnode -lpvloopbacknode -lpvvideoparsernode -lpvdummyinputnode -lpvdummyoutputnode  -lpvplayer_engine -lpvauthorengine -lpv2wayengine -lpvframemetadatautility -lpvrtspinterface -lpvrtspreginterface   -lpvdownloadinterface -lpvdownloadreginterface -lpvmp4interface -lpvmp4reginterface      "
-#define REGISTER_OMX_AAC_COMPONENT 0
-#define REGISTER_OMX_DSP_AAC_COMPONENT 1
+#define REGISTER_OMX_AAC_COMPONENT 1
+#define REGISTER_OMX_DSP_AAC_COMPONENT 0
 #define pvwavffparsernode_m_lib "-lpvwavffparsernode"
 #define rtppayloadparser_m_lib "-lrtppayloadparser"
 #define DYNAMIC_LOAD_OMX_M4V_COMPONENT 0
@@ -905,8 +905,8 @@
 #define pvgsmamrparser_m_mk "/fileformats/rawgsmamr/parser/build/make"
 #define rvdecoder_m_mk ""
 #define pvmp4ffparsernodeopencore_m_mk "/nodes/pvmp4ffparsernode/build_opencore/make"
-#define REGISTER_OMX_MP3_COMPONENT 0
-#define REGISTER_OMX_DSP_MP3_COMPONENT 1
+#define REGISTER_OMX_MP3_COMPONENT 1
+#define REGISTER_OMX_DSP_MP3_COMPONENT 0
 #define scsp_y_lib ""
 #define pvstreamingmanagernode_segments_m_lib "-lpvstreamingmanagernode"
 #define LIBS_omxdec_shared "-lomx_avc_component_lib -lomx_m4v_component_lib  -lomx_aac_component_lib -lomx_amr_component_lib -lomx_mp3_component_lib "
@@ -1149,8 +1149,8 @@
 #define LIBDIR_video_shared "/codecs_v2/video/avc_h264/common/build/make /codecs_v2/video/avc_h264/dec/build/make  /codecs_v2/video/m4v_h263/dec/build/make  /codecs_v2/video/m4v_h263/enc/build/make /codecs_v2/video/avc_h264/enc/build/make"
 #define pvasfff_m_mk ""
 #define omx_queue_m_mk "/codecs_v2/omx/omx_queue/build/make"
-#define DYNAMIC_LOAD_OMX_AAC_COMPONENT 0
-#define DYNAMIC_LOAD_OMX_DSP_AAC_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_AAC_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_DSP_AAC_COMPONENT 0
 #define DYNAMIC_LOAD_OMX_AVC_COMPONENT 0
 #define DYNAMIC_LOAD_OMX_DSP_AVC_COMPONENT 1
 #define pvgendatastruct_y_mk ""
@@ -1378,8 +1378,8 @@
 #define pvprotocolenginewmhttpstreamingpluginreginterface_m_mk ""
 #define pvclientserversocketnode_m_lib "-lpvclientserversocketnode"
 #define pvsqlite_m_mk ""
-#define DYNAMIC_LOAD_OMX_MP3_COMPONENT 0
-#define DYNAMIC_LOAD_OMX_DSP_MP3_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_MP3_COMPONENT 1
+#define DYNAMIC_LOAD_OMX_DSP_MP3_COMPONENT 0
 #define pvavcdecoder_y_mk ""
 #define getactualaacconfig_y_lib ""
 #define pvasf_streamingreg_so_name ""
