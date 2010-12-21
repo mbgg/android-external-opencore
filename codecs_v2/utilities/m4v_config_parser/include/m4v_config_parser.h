@@ -47,6 +47,12 @@
 #define SHORT_VIDEO_START_MARKER        0x20
 #define SHORT_VIDEO_START_MARKER_LENGTH  22
 
+/*Some H264 profiles*/
+#define H264_PROFILE_IDC_BASELINE 66
+#define H264_PROFILE_IDC_MAIN 77
+#define H264_PROFILE_IDC_EXTENDED 88
+#define H264_PROFILE_IDC_HIGH 100
+
 typedef struct
 {
     uint8 *data;
@@ -86,7 +92,7 @@ OSCL_IMPORT_REF int16 iDecodeVOLHeader(mp4StreamType *psBits, int32 *width, int3
 OSCL_IMPORT_REF int16 iGetM4VConfigInfo(uint8 *buffer, int32 length, int32 *width, int32 *height, int32 *, int32 *);
 int16 DecodeUserData(mp4StreamType *pStream);
 OSCL_IMPORT_REF int16 iDecodeShortHeader(mp4StreamType *psBits, int32 *width, int32 *height, int32 *, int32 *);
-OSCL_IMPORT_REF int16 iGetAVCConfigInfo(uint8 *buffer, int32 length, int32 *width, int32 *height, int32 *, int32 *, int32 *profile, int32 *level);
+OSCL_IMPORT_REF int16 iGetAVCConfigInfo(uint8 *buffer, int32 length, int32 *width, int32 *height, int32 *, int32 *, int32 *profile, int32 *level, uint32 *entropy_coding_mode_flag);
 
 int32 FindNAL(uint8** nal_pnt, uint8* buffer, int32 length);
 int16 DecodeSPS(mp4StreamType *psBits, int32 *width, int32 *height, int32 *display_width, int32 *display_height, int32 *profile_idc, int32 *level_idc);
@@ -94,7 +100,7 @@ int16 DecodeSPS(mp4StreamType *psBits, int32 *width, int32 *height, int32 *displ
 int32 DecodeHRD(mp4StreamType *psBits);
 int32 DecodeVUI(mp4StreamType *psBits);
 #endif
-int32 DecodePPS(mp4StreamType *psBits);
+int32 DecodePPS(mp4StreamType *psBits, uint32 *entropy_coding_mode_flag);
 
 void ue_v(mp4StreamType *psBits, uint32 *codeNum);
 void se_v(mp4StreamType *psBits, int32 *value);

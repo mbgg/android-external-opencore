@@ -35,6 +35,7 @@ typedef struct
     uint32 height;
     uint32 profile;
     uint32 level;
+    uint32 entropy;
 } pvVideoConfigParserOutputs;
 
 OSCL_IMPORT_REF int16 pv_video_config_parser(pvVideoConfigParserInputs *aInputs, pvVideoConfigParserOutputs *aOutputs);

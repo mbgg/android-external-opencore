@@ -66,6 +66,9 @@ int32 GetNAL_Config(uint8** bitstream, int32* size);
 
 OSCL_EXPORT_REF int16 pv_video_config_parser(pvVideoConfigParserInputs *aInputs, pvVideoConfigParserOutputs *aOutputs)
 {
+    //modify entropy only when required
+    aOutputs->entropy = 0;
+
     if (aInputs->iMimeType == PVMF_MIME_M4V) //m4v
     {
         mp4StreamType psBits;
@@ -107,6 +110,7 @@ OSCL_EXPORT_REF int16 pv_video_config_parser(pvVideoConfigParserInputs *aInputs,
     {
         int32 width, height, display_width, display_height = 0;
         int32 profile_idc, level_idc = 0;
+        uint32 entropy_coding_mode_flag = 0;
 
         uint8 *tp = aInputs->inPtr;
 
@@ -143,7 +147,8 @@ OSCL_EXPORT_REF int16 pv_video_config_parser(pvVideoConfigParserInputs *aInputs,
                                    (int*) & display_width,
                                    (int*) & display_height,
                                    (int*) & profile_idc,
-                                   (int*) & level_idc);
+                                   (int*) & level_idc,
+                                   (uint*) & entropy_coding_mode_flag);
         if (retval != 0)
         {
             return retval;
@@ -152,6 +157,7 @@ OSCL_EXPORT_REF int16 pv_video_config_parser(pvVideoConfigParserInputs *aInputs,
         aOutputs->height = (uint32)display_height;
         aOutputs->profile = (uint32)profile_idc;
         aOutputs->level = (uint32) level_idc;
+        aOutputs->entropy = (uint32) entropy_coding_mode_flag;
     }
     else if (aInputs->iMimeType == PVMF_MIME_WMV) //wmv
     {
@@ -270,7 +276,11 @@ int32 GetNAL_Config(uint8** bitstream, int32* size)
     /* found the SC at the beginning of the NAL, now find the SC at the beginning of the next NAL */
     while (i < *size)
     {
-        if (count == 2 && nal_unit[i] == 0x01)
+        /* It is possible that we have trailing_zero_8bits(0x00) after
+         * the first NAL sequence. Hence we need to traverse till we reach the
+         * next NAL sequence (start_code_prefix_one_3bytes-0x000001) and then
+         * point to the starting byte of NAL sequence */
+        if (count >= 2 && nal_unit[i] == 0x01)
         {
             i -= 2;
             break;

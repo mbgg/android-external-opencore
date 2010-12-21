@@ -8349,6 +8349,8 @@ PVMFStatus PVMFMP4FFParserNode::GetVideoFrameWidth(uint32 aId, int32& aWidth, in
             iMP4FileHandle->getTrackDecoderSpecificInfoSize(aId);
         if (specinfosize != 0)
         {
+            uint32 mode = 0;
+
             // Retrieve the decoder specific info from file parser
             uint8* specinfoptr =
                 iMP4FileHandle->getTrackDecoderSpecificInfoContent(aId);
@@ -8361,7 +8363,8 @@ PVMFStatus PVMFMP4FFParserNode::GetVideoFrameWidth(uint32 aId, int32& aWidth, in
                                   (int32*) & display_width,
                                   (int32*) & display_height,
                                   (int32*) & profile,
-                                  (int32*) & level);
+                                  (int32*) & level,
+                                  &mode);
             if (status != 0)
             {
                 return PVMFFailure;
@@ -8507,6 +8510,7 @@ PVMFStatus PVMFMP4FFParserNode::GetVideoFrameHeight(uint32 aId, int32& aHeight, 
             iMP4FileHandle->getTrackDecoderSpecificInfoSize(aId);
         if (specinfosize != 0)
         {
+            uint32 mode =0;
             // Retrieve the decoder specific info from file parser
             uint8* specinfoptr =
                 iMP4FileHandle->getTrackDecoderSpecificInfoContent(aId);
@@ -8519,7 +8523,8 @@ PVMFStatus PVMFMP4FFParserNode::GetVideoFrameHeight(uint32 aId, int32& aHeight, 
                                   (int32*) & display_width,
                                   (int32*) & display_height,
                                   (int32*) & profile,
-                                  (int32*) & level);
+                                  (int32*) & level,
+                                  &mode);
             if (status != 0)
             {
                 return PVMFFailure;
