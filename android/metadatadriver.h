@@ -37,7 +37,7 @@
 #include "OMX_Core.h"
 #include "pv_omxcore.h"
 
-#define BEST_THUMBNAIL_MODE 1
+//#define BEST_THUMBNAIL_MODE 1
 
 #if BEST_THUMBNAIL_MODE
 #include "pvmf_local_data_source.h"
