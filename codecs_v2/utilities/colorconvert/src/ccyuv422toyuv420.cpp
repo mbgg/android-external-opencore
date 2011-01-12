@@ -163,6 +163,12 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                     *outcr++ = (uint8)((temp >> 8) & 0xFF);
                     *outy++ = (uint8)((temp >> 16) & 0xFF);
 #endif
+#if ENDIAN_4
+                    *outcr++ = (uint8)(temp & 0xFF);
+                    *outy++ = (uint8)((temp >> 8) & 0xFF);
+                    *outcb++ = (uint8)((temp >> 16) & 0xFF);
+                    *outy++ = (uint8)((temp >> 24) & 0xFF);
+#endif
                 }
                 /* in case the dest pitch is larger than width */
                 outcb += (offset >> 1);
@@ -172,7 +178,7 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                 for (j = _mSrc_width >> 1; j > 0; j--)
                 {
                     temp = *inyuv_4++;
-#if ENDIAN_1
+#if ENDIAN_1 || ENDIAN_4
                     *outy++ = (uint8)((temp >> 8) & 0xFF) ;
                     *outy++ = (uint8)((temp >> 24) & 0xFF);
 #endif
@@ -229,6 +235,15 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                     *outcb = (uint8)((temp >> 8) & 0xFF);
                     *outy = (uint8)((temp >> 16) & 0xFF);
 #endif
+#if ENDIAN_4
+                    outcr -= (lpitch >> 1);
+                    *outcr = (uint8)(temp & 0xFF);
+                    outy -= (lpitch << 1);
+                    outy[lheight] = (uint8)((temp >> 8) & 0xFF);
+                    outcb -= (lpitch >> 1);
+                    *outcb = (uint8)((temp >> 16) & 0xFF);
+                    *outy = (uint8)((temp >> 24) & 0xFF);
+#endif
                 }
 
                 outy += (outYsize + 1);
@@ -236,7 +251,7 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                 for (j = _mSrc_width >> 1; j > 0; j--)
                 {
                     temp = *inyuv_4++;
-#if ENDIAN_1
+#if ENDIAN_1 || ENDIAN_4
                     outy -= (lpitch << 1);
                     outy[lheight] = (uint8)((temp >> 8) & 0xFF);
                     *outy = (uint8)((temp >> 24) & 0xFF);
@@ -291,6 +306,12 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                     *outy-- = (uint8)((temp >> 16) & 0xFF);
                     *outcr-- = (uint8)((temp >> 24) & 0xFF);
 #endif
+#if ENDIAN_4
+                    *outcr-- = (uint8)(temp & 0xFF);
+                    *outy-- = (uint8)((temp >> 8) & 0xFF);
+                    *outcb-- = (uint8)((temp >> 16) & 0xFF);
+                    *outy-- = (uint8)((temp >> 24) & 0xFF);
+#endif
                 }
                 /* in case the dest pitch is larger than width */
                 outcb -= (offset >> 1);
@@ -300,7 +321,7 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                 for (j = _mSrc_width >> 1; j > 0; j--)
                 {
                     temp = *inyuv_4++;
-#if ENDIAN_1
+#if ENDIAN_1 || ENDIAN_4
                     *outy-- = (uint8)((temp >> 8) & 0xFF) ;
                     *outy-- = (uint8)((temp >> 24) & 0xFF);
 #endif
@@ -359,6 +380,15 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                     *outcb = (uint8)((temp >> 8) & 0xFF);
                     *outy = (uint8)(temp & 0xFF);
 #endif
+#if ENDIAN_4
+                    outcr -= (lpitch >> 1);
+                    *outcr = (uint8)(temp & 0xFF);
+                    outy -= (lpitch << 1);
+                    outy[lheight] = (uint8)((temp >> 24) & 0xFF);
+                    outcb -= (lpitch >> 1);
+                    *outcb = (uint8)((temp >> 16) & 0xFF);
+                    *outy = (uint8)((temp >> 8) & 0xFF);
+#endif
                 }
 
                 outy += (outYsize + 1);
@@ -366,7 +396,7 @@ int32 CCYUV422toYUV420::Convert(uint8 *inyuv, uint8 *outyuv)
                 for (j = _mSrc_width >> 1; j > 0; j--)
                 {
                     temp = *--inyuv_4;
-#if ENDIAN_1
+#if ENDIAN_1 || ENDIAN_4
                     outy -= (lpitch << 1);
                     outy[lheight] = (uint8)((temp >> 24) & 0xFF);
                     *outy = (uint8)((temp >> 8) & 0xFF);

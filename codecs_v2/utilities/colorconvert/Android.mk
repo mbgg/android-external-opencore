@@ -21,10 +21,8 @@ LOCAL_MODULE := libcolorconvert
 
 LOCAL_CFLAGS := -DFALSE=false $(PV_CFLAGS)
 
-# Temporary workaround
-ifeq ($(strip $(USE_SHOLES_PROPERTY)),true)
-LOCAL_CFLAGS += -DSHOLES_PROPERTY_OVERRIDES
-endif
+# decoder outputs VYUY format
+LOCAL_CFLAGS += -DENDIAN_4
 
 LOCAL_ARM_MODE := arm
 

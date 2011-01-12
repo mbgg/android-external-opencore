@@ -30,6 +30,9 @@
 
 /********************************************************************************************
  For YUV422 to YUV420 conversion, the Input YUV422 data can be in three forms:-
+    ENDIAN_4 :
+        Cr1 Y1 Cb1 Y2 Cr2 Y3 Cb2 Y4 .....
+
     ENDIAN_1 :
         Cb1 Y1 Cr1 Y2 Cb2 Y3 Cr2 Y4 .....
 
@@ -41,14 +44,21 @@
 
 *********************************************************************************************/
 /* Set one of the following to 1  depending on your requirement */
-#ifdef SHOLES_PROPERTY_OVERRIDES
-#define ENDIAN_1 1
-#define ENDIAN_2 0
-#else
+#ifndef ENDIAN_1
 #define ENDIAN_1 0
-#define ENDIAN_2 1
 #endif
+
+#ifndef ENDIAN_2
+#define ENDIAN_2 0
+#endif
+
+#ifndef ENDIAN_3
 #define ENDIAN_3 0
+#endif
+
+#ifndef ENDIAN_4
+#define ENDIAN_4 1
+#endif
 
 #endif // COLORCONV_CONFIG_H_INCLUDED
 
