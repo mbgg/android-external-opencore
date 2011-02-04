@@ -10,6 +10,7 @@ LOCAL_SRC_FILES := \
         src/oscl_heapbase.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclerror
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

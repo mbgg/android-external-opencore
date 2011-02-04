@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_media_input_node_cap_config.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmediainputnode
 
 LOCAL_CFLAGS := -DTEXT_TRACK_DESC_INFO $(PV_CFLAGS)

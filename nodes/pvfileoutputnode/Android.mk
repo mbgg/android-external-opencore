@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_fileoutput_node_cap_config.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvfileoutputnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_aacffparser_outport.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvaacffparsernode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

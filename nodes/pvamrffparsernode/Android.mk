@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_amrffparser_factory.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvamrffparsernode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

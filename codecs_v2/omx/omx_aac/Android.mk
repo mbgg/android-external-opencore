@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/aac_timestamp.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libomx_aac_component_lib
 
 LOCAL_CFLAGS := -DAAC_PLUS -DHQ_SBR -DPARAMETRICSTEREO $(PV_CFLAGS)

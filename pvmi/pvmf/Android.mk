@@ -23,6 +23,7 @@ LOCAL_SRC_FILES := \
         src/pvmi_kvp_util.cpp \
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmf
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

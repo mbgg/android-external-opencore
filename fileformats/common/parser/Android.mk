@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmi_datastreamsyncinterface_ref_impl.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvfileparserutils
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

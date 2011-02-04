@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_socket_port.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvsocketnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

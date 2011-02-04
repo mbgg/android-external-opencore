@@ -147,6 +147,7 @@ LOCAL_SRC_FILES := \
  	src/../util/getactualaacconfig/src/getactualaacconfig.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_aac_dec
 
 LOCAL_CFLAGS := -DAAC_PLUS -DHQ_SBR -DPARAMETRICSTEREO $(PV_CFLAGS)

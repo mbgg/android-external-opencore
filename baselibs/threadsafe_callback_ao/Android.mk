@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/threadsafe_queue.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libthreadsafe_callback_ao
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

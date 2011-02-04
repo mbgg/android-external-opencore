@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pv_omxmastercore.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libomx_mastercore_lib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

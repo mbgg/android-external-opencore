@@ -29,6 +29,7 @@ LOCAL_C_INCLUDES := $(PV_INCLUDES) \
     $(call include-path-for, graphics corecg) \
     external/tremolo/Tremolo
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libandroidpv
 
 LOCAL_SHARED_LIBRARIES := libui libutils libbinder libsurfaceflinger_client libcamera_client

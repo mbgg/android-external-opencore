@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvaacffrec_plugin.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvaacffrecognizer
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

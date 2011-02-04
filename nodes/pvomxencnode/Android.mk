@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_omx_enc_callbacks.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvomxencnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

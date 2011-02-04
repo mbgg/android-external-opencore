@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/m4v_config_parser.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libm4v_config
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

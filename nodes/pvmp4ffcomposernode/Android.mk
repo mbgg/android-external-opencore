@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmp4ffcn_node_cap_config.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmp4ffcomposernode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

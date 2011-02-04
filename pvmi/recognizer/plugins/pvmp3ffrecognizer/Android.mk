@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvmp3ffrec_plugin.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmp3ffrecognizer
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -64,6 +64,7 @@ LOCAL_SRC_FILES := \
  	src/window_tab.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_amr_nb_common_lib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS_MINUS_VISIBILITY)

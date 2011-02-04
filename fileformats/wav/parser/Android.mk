@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pvwavfileparser.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvwav
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

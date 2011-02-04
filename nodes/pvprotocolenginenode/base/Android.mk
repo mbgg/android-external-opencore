@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_protocol_engine_port.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libprotocolenginenode_base
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

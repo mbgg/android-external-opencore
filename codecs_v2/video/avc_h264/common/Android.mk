@@ -9,6 +9,7 @@ LOCAL_SRC_FILES := \
  	src/reflist.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_avc_common_lib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

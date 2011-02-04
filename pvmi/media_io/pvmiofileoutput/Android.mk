@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pvmi_media_io_fileoutput.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmiofileoutput
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

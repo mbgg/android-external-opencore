@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_omx_basedec_callbacks.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvomxbasedecnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

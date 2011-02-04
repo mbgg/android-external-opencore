@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/string_keyvalue_store.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_http_parcom
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

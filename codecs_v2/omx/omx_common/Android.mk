@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pv_omxregistry.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libomx_common_lib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_cpmplugin_factory_registry.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libcpm
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

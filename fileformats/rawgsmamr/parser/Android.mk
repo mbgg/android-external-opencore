@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/amrfileparser.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvgsmamrparser
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

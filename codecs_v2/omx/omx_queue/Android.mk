@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pv_omx_queue.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libomx_queue_lib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

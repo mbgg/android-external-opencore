@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pvmi_mio_fileinput.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmiofileinput
 
 LOCAL_CFLAGS := -DTEXT_TRACK_DESC_INFO $(PV_CFLAGS)

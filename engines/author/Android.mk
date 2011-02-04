@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvauthorengine.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvauthorengine
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_cpmplugin_passthru_oma1.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpassthru_oma1
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

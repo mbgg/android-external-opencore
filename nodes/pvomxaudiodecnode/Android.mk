@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_omx_audiodec_node.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvomxaudiodecnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

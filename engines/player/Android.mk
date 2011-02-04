@@ -9,6 +9,7 @@ LOCAL_SRC_FILES := \
  	src/../config/core/pv_player_node_registry_populator.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvplayer_engine
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pv_omx_interface.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_omx_interface
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

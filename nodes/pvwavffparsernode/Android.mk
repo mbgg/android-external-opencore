@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_wavffparser_factory.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvwavffparsernode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

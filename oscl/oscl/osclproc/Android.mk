@@ -16,6 +16,7 @@ LOCAL_SRC_FILES := \
  	src/oscl_init.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclproc
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

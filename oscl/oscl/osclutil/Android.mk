@@ -17,6 +17,7 @@ LOCAL_SRC_FILES := \
         src/oscl_priqueue.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclutil
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

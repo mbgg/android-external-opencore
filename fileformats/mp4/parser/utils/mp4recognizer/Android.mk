@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/atomutils.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libmp4recognizer_utility
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

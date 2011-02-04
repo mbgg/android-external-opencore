@@ -17,6 +17,7 @@ LOCAL_SRC_FILES := \
  	src/ccyuv420toyuv420semi.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libcolorconvert
 
 LOCAL_CFLAGS := -DFALSE=false $(PV_CFLAGS)

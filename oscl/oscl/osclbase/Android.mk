@@ -21,6 +21,7 @@ LOCAL_SRC_FILES := \
         src/pvlogger_c.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclbase
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

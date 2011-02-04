@@ -35,6 +35,7 @@ LOCAL_C_INCLUDES := $(PV_INCLUDES) \
 
 LOCAL_SHARED_LIBRARIES := libmedia libbinder
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libandroidpvauthor
 
 LOCAL_LDLIBS += 

@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/oscl_library_list.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := liboscllib
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -9,6 +9,7 @@ LOCAL_SRC_FILES := \
  	src/../config/common/pv_frame_metadata_mio_video_config.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvframemetadatautility
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

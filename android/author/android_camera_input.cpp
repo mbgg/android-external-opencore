@@ -893,7 +893,8 @@ PVMFStatus AndroidCameraInput::DoInit()
 
     // create a camera if the app didn't supply one
     if (mCamera == 0) {
-        mCamera = Camera::connect();
+        //FIXME just set the cameraID as 0 to make opencore built at the moment
+        mCamera = Camera::connect(0);
     }
 
     // always call setPreviewDisplay() regardless whether mCamera is just created or not

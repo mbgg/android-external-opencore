@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_recognizer_registry_impl.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmfrecognizer
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -40,6 +40,7 @@ LOCAL_SRC_FILES := \
  	src/oscl_udp_socket.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclio
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

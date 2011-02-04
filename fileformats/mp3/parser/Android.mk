@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
  	src/mp3utils.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmp3ff
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

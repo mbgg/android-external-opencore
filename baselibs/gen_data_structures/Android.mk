@@ -11,6 +11,7 @@ LOCAL_SRC_FILES := \
  	src/wchar_size_utils.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvgendatastruct
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

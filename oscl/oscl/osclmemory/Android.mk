@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
         src/oscl_mem_mempool.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclmemory
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

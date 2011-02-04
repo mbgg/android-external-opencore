@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pv_mime_string_utils.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmimeutils
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

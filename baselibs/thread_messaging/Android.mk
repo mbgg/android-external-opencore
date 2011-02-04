@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pv_interface_proxy_notifier.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvthreadmessaging
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

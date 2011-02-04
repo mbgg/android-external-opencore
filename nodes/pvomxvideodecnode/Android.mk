@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_omx_videodec_node.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvomxvideodecnode
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/pvmf_protocol_engine_node_progressive_download_container_factory.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libprotocolenginenode_pdl
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

@@ -10,6 +10,7 @@ LOCAL_SRC_FILES := \
  	src/pv_avifile_streamlist.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvavifileparser
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

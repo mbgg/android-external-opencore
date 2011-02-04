@@ -6,6 +6,7 @@ LOCAL_SRC_FILES := \
  	src/pv_audio_config_parser.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpv_config_parser
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

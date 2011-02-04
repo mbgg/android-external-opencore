@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pv_id3_parcom.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvid3parcom
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

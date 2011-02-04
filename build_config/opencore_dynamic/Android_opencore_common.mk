@@ -43,6 +43,7 @@ LOCAL_WHOLE_STATIC_LIBRARIES := \
 # to solve circular dependency among the static libraries.
 LOCAL_STATIC_LIBRARIES := $(LOCAL_STATIC_LIBRARIES) $(LOCAL_WHOLE_STATIC_LIBRARIES)
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libopencore_common
 
 -include $(PV_TOP)/Android_platform_extras.mk

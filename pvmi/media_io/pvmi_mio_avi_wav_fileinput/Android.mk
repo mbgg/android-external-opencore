@@ -5,6 +5,7 @@ LOCAL_SRC_FILES := \
  	src/pvmi_mio_avi_wav_file.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libpvmioaviwavfileinput
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)

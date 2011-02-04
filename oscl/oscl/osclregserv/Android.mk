@@ -7,6 +7,7 @@ LOCAL_SRC_FILES := \
  	src/oscl_registry_serv_impl_tls.cpp
 
 
+LOCAL_MODULE_TAGS := $(PV_MODULE_TAG)
 LOCAL_MODULE := libosclregserv
 
 LOCAL_CFLAGS :=  $(PV_CFLAGS)
