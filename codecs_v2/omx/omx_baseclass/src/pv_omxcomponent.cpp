@@ -4254,8 +4254,8 @@ OSCL_EXPORT_REF OMX_ERRORTYPE OmxComponentVideo::SetParameter(
                 // Encoder components can have different formats - (rely on the client to provide the correct size)
                 if (OMX_PORT_OUTPUTPORT_INDEX == PortIndex)
                 {
-                    // Decoder components always output YUV420 format
-                    ipPorts[PortIndex]->PortParam.nBufferSize = (videoformat->nSliceHeight * videoformat->nStride * 3) >> 1;
+                    // DSP Decoder components always output YUV422 format
+                    ipPorts[PortIndex]->PortParam.nBufferSize = videoformat->nSliceHeight * videoformat->nStride * 2;
 
                 }
 
