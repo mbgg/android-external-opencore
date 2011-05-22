@@ -19,22 +19,28 @@ include $(BUILD_PREBUILT)
 
 
 include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_common.mk
-include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_author.mk
-include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_player.mk
 include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_avcdec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_m4vdec_sharedlibrary.mk
-include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_aacdec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_amrdec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_mp3dec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_amrenc_sharedlibrary.mk
-include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_net_support.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_downloadreg.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_download.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_rtspreg.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_rtsp.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_mp4localreg.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_mp4local.mk
+
+ifeq ($(BUILD_PV_OMX_ONLY),true)
+# pvmi_mio_fileinput.cpp needs textsampledescinfo.h
+include $(PV_TOP)/fileformats/mp4/composer/Android.mk
+else
+include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_author.mk
+include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_player.mk
+include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_aacdec_sharedlibrary.mk
+include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_net_support.mk
+endif
 
 ifeq ($(BUILD_PV_VIDEO_ENCODERS),1)
 include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_avcenc_sharedlibrary.mk$
