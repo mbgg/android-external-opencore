@@ -12,7 +12,8 @@ public:
     PVMediaScanner();
     virtual ~PVMediaScanner();
 
-    virtual status_t processFile(
+    //virtual status_t processFile(
+    virtual MediaScanResult processFile(
             const char *path, const char *mimeType,
             MediaScannerClient &client);
 

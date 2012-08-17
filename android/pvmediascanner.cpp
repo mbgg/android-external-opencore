@@ -508,7 +508,7 @@ static PVMFStatus parseMidi(const char *filename, MediaScannerClient& client) {
 static PVMFStatus parseWMA(const char *filename, MediaScannerClient& client)
 {
     sp<MediaMetadataRetriever> retriever = new MediaMetadataRetriever();
-    retriever->setMode( 1 /*MediaMetadataRetriever.MODE_GET_METADATA_ONLY*/);
+    //retriever->setMode( 1 /*MediaMetadataRetriever.MODE_GET_METADATA_ONLY*/);
     status_t status = retriever->setDataSource(filename);
     if (status != NO_ERROR) {
         LOGE("parseWMA setDataSource failed (%d)", status);
@@ -562,7 +562,8 @@ static PVMFStatus parseWMA(const char *filename, MediaScannerClient& client)
     return PVMFSuccess;
 }
 
-status_t PVMediaScanner::processFile(const char *path, const char* mimeType, MediaScannerClient& client)
+//status_t PVMediaScanner::processFile(const char *path, const char* mimeType, MediaScannerClient& client)
+MediaScanResult PVMediaScanner::processFile(const char *path, const char* mimeType, MediaScannerClient& client)
 {
     status_t result;
     InitializeForThread();
@@ -598,7 +599,7 @@ status_t PVMediaScanner::processFile(const char *path, const char* mimeType, Med
 
     client.endFile();
 
-    return result;
+    return (MediaScanResult) result;
 }
 
 static char* doExtractAlbumArt(PvmfApicStruct* aApic)

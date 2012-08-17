@@ -1,3 +1,23 @@
+ifeq ($(BUILD_OPENCORE_COMMON),true)
+PV_MODULE_TAG := optional
+LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+include $(LOCAL_PATH)/Config.mk
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := pvplayer.cfg
+LOCAL_BUILT_MODULE_STEM := pvplayer.cfg
+LOCAL_MODULE_SUFFIX := .cfg
+LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE := pvplayer
+LOCAL_MODULE_CLASS := ETC
+include $(BUILD_PREBUILT)
+
+
+include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_common.mk
+include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_sharedlibrary.mk
+endif
+
 ifneq ($(BUILD_WITHOUT_PV),true)
 PV_MODULE_TAG := optional
 LOCAL_PATH := $(call my-dir)
@@ -20,6 +40,7 @@ include $(BUILD_PREBUILT)
 
 include $(PV_TOP)/build_config/opencore_dynamic/Android_opencore_common.mk
 include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_sharedlibrary.mk
+
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_avcdec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_m4vdec_sharedlibrary.mk
 #include $(PV_TOP)/build_config/opencore_dynamic/Android_omx_amrdec_sharedlibrary.mk

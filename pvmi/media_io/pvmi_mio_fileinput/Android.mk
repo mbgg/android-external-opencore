@@ -20,6 +20,7 @@ LOCAL_C_INCLUDES := \
 	$(PV_TOP)/pvmi/media_io/pvmi_mio_fileinput/src \
  	$(PV_TOP)/pvmi/media_io/pvmi_mio_fileinput/include \
  	$(PV_TOP)/pvmi/pvmf/include \
+	$(PV_TOP)/fileformats/mp4/composer/include \
  	$(PV_INCLUDES)
 
 LOCAL_COPY_HEADERS_TO := $(PV_COPY_HEADERS_TO)
